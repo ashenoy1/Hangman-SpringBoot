@@ -17,8 +17,7 @@ public class HangmanWordDaoImpl implements GameDao {
     static {
 
         games = new HashMap<String, Game>();
-        dictionary = Arrays.asList("aetion", "software", "is","the","best"); 
-        
+        dictionary = Arrays.asList("popular", "hangman", "words","to","use","with","my","software"); 
     }
     
     @Override
