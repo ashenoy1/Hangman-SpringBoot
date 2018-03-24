@@ -1,5 +1,6 @@
 Hangman game assignment for Aetion by Ashwin Shenoy
 
 How to run:
-1. Open pom.xml
-2. Run Main.java
+1. Run Main.
+2. localhost8080/new  -> starts the new game and generates json formated data
+3. localhost8080/guess {gameId: , guessedLetter: } -> returns your guess results. Test on rest clients to send POST request with json formated data.
