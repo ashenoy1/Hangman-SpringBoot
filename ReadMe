@@ -1,9 +1,15 @@
-Hangman game assignment for Aetion by Ashwin Shenoy
+Basic Hangman game by Ashwin Shenoy
 
 How to run:
+<<<<<<< HEAD
 
 1. Run Main.java
 2. GET for new game
 3. POST for guess
 
 --Words are stored in DAO--
+=======
+1. Run Main.
+2. localhost8080/new  -> starts the new game and generates json formated data
+3. localhost8080/guess {gameId: , guessedLetter: } -> returns your guess results. Test on rest clients to send POST request with json formated data.
+>>>>>>> 5cc2a709645b5134184c43311298a767c0eed6f3
