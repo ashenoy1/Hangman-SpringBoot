@@ -6,7 +6,7 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
 
 
-@JsonInclude(Include.NON_EMPTY)
+@JsonInclude(Include.NON_NULL)
 public class Game implements Response{
 
     private String gameId;
@@ -16,12 +16,12 @@ public class Game implements Response{
     
     private StringBuilder currentWord;
     private String status;
-    private int incorrect;
+    private Integer incorrect;
     private String response;
 
 
-	public Game(String gameId, String word) { 
-    	this.status = "";
+	public Game(String gameId, String word) {
+    	//this.status = "";
         this.gameId = gameId;
         this.word = word;
         currentWord = new StringBuilder();
@@ -40,12 +40,18 @@ public class Game implements Response{
         this.gameId = gameId;
     }
     
-	public int getIncorrect() {
+	public Integer getIncorrect() {
 		return incorrect;
 	}
 
-	public void setIncorrect(int incorrect) {
+	public void setIncorrect(Integer incorrect) {
 		this.incorrect = incorrect;
+	}
+	
+	public void ifIncorrectNull() {
+	    if(this.incorrect == null){
+	    	this.incorrect = new Integer(0);
+	    }
 	}
 	
 	public void incrementWrong(){
@@ -60,6 +66,11 @@ public class Game implements Response{
 		this.currentWord = initialWord;
 	}
 
+	public void ifStatusNull() {
+	    if(this.status == null){
+	    	this.status = "ACTIVE";
+	    }
+	}
 	public String getStatus() {
 		return status;
 	}

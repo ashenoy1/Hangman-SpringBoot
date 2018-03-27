@@ -17,7 +17,7 @@ public class HangmanWordDaoImpl implements GameDao {
     static {
 
         games = new HashMap<String, Game>();
-        dictionary = Arrays.asList("popular", "hangman", "words","to","use","with","my","software"); 
+        dictionary = Arrays.asList("popular","hangman", "words","to","use","with","my","software"); 
     }
     
     @Override
@@ -43,6 +43,7 @@ public class HangmanWordDaoImpl implements GameDao {
             randomId.append(letter);
         }
 		String word = dictionary.get(r.nextInt(dictionary.size()));
+		word.toLowerCase();
 		return new Game(randomId.toString(),word);	
 	}
 

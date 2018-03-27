@@ -23,8 +23,12 @@ public class GameService {
     	return this.gameDao.newGame();
     }
     
-    public Response makeGuess(Guess guessObj){  
+    public Response makeGuess(Guess guessObj){
     	Game gameObj = gameDao.getGame(guessObj.getGameId());
+    	
+    	//Initialize within Guess function, so these JSON variables don't show for newgame()
+    	gameObj.ifStatusNull();
+    	gameObj.ifIncorrectNull();
     	
     	try{
     		if(gameObj.getStatus().equals("WON") || gameObj.getStatus().equals("LOST"))
@@ -33,14 +37,11 @@ public class GameService {
     		return new CustomError("GameId is invalid");
     	}
     	
-    	
     	String originalWord = gameObj.getWord();
     	String shownWord = gameObj.getCurrentWord().toString();
     	String guess = guessObj.getGuessedLetter().toLowerCase();
     	if(guess.length() != 1)
     		return new CustomError("Input letter needs to be a single character");
-    	
-    	gameObj.setStatus("ACTIVE");
     	
     	
     	//If char exists in word and hasn't already been found, apply following operations

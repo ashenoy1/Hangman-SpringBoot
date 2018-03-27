@@ -18,12 +18,12 @@ public class GameController {
     @Autowired
     private GameService gameService;
 
-    @RequestMapping(value = "new", method = RequestMethod.GET)
+    @RequestMapping(method = RequestMethod.GET)
     public Response newGame(){
         return gameService.newGame();
     }
     
-    @RequestMapping(value = "guess", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE) 
+    @RequestMapping(method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE) 
     public Response makeGuess(@RequestBody Guess guess){ 
         return gameService.makeGuess(guess);
     }

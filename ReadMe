@@ -1,5 +1,9 @@
 Hangman game assignment for Aetion by Ashwin Shenoy
 
 How to run:
-1. Open pom.xml
-2. Run Main.java
+
+1. Run Main.java
+2. GET for new game
+3. POST for guess
+
+--Words are stored in DAO--
